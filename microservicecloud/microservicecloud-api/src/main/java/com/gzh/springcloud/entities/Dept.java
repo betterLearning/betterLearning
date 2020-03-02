@@ -3,16 +3,14 @@ package com.gzh.springcloud.entities;
 import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @SuppressWarnings("serial")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Accessors(chain = true)
 public class Dept implements Serializable {
     private Long deptno;
