@@ -8,7 +8,7 @@ import com.gzh.springcloud.entities.Dept;
 
 @Service
 public interface DeptService {
-    public boolean addDept(Dept dept);
+    public long addDept(Dept dept);
     public Dept get(Long id);
     public List<Dept> list();
 }

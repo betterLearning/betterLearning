@@ -24,24 +24,25 @@ public class DeptController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     
-    @RequestMapping(value ="/dept/add" ,method=RequestMethod.POST)
-    public boolean add(@RequestBody Dept dept) {
-       return service.addDept(dept); 
+    @GetMapping(value ="/dept/add")
+    public Dept add(Dept dept) {
+     service.addDept(dept); 
+     return dept;
     }
     
-    @RequestMapping(value ="/dept/get/{id}" ,method=RequestMethod.GET)
+    @RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
     public Dept get(@PathVariable("id") Long id) {
-       return service.get(id);
+        return service.get(id);
     }
     
-    @RequestMapping(value ="/dept/list" ,method=RequestMethod.GET)
+    @RequestMapping(value = "/dept/list", method = RequestMethod.GET)
     public List<Dept> list() {
-       return service.list();
+        return service.list();
     }
     
-    @GetMapping(value ="/query")
+    @GetMapping(value = "/query")
     public Map<String, Object> query() {
-       List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT * FROM dept");
-       return list.get(0);
+        List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT * FROM dept");
+        return list.get(0);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gzh.springcloud.dao.DeptDao;
 import com.gzh.springcloud.entities.Dept;
+import com.gzh.springcloud.mapper.DeptMapper;
 import com.gzh.springcloud.service.DeptService;
 
 @Service
@@ -15,16 +16,19 @@ public class DeptServiceImpl implements DeptService {
     @Autowired
     private DeptDao dao;
     
+    @Autowired
+    private DeptMapper mapper;
+    
     @Override
-    public boolean addDept(Dept dept) {
+    public long addDept(Dept dept) {
         
-        return dao.addDept(dept);
+        return mapper.insertDept(dept);
     }
     
     @Override
     public Dept get(Long id) {
         
-        return dao.findById(id);
+        return mapper.getDeptById(id);
     }
     
     @Override
